@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import InfiniteScroll from 'react-infinite-scroller';
+import logo from '../logo.png'
 
 import './gallery.styles.scss';
 
@@ -31,8 +32,6 @@ class Gallery extends Component {
 
   render() {
     return (
-      <React.Fragment>
-        <h2>Da click en la imagen para leer la nota</h2>
         <InfiniteScroll
           loadMore={this.fetchData.bind(this)}
           hasMore={this.state.hasmore}
@@ -40,6 +39,14 @@ class Gallery extends Component {
           loader={<div className="loader" key={0}>Cargando ...</div>}
           className='gallery-container'
         >
+          <div className='header'>
+            <div className='logo'>
+              <a href="/">
+                <img src={logo} alt='Logo'/>
+              </a>
+            </div>
+            <h3>Da click en la imagen para leer la nota</h3>
+          </div>
           {this.state.posts.map(post => (
             <a href={post.ACF.link_instagram} key={post.id}>
               <img
@@ -49,7 +56,6 @@ class Gallery extends Component {
             </a>))
           }
         </InfiniteScroll>
-      </React.Fragment>
     )
   }
 }

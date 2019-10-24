@@ -1,14 +1,22 @@
-h2 {
-  padding: 16px;
+.header {
+  grid-area: header;
+  .logo {
+    text-align: center;
+  }
 }
+
 .gallery-container {
   display: grid;
   grid-template-columns: auto auto auto auto;
   grid-gap: 1em;
   justify-content: center;
   padding: 1em;
+  grid-template-areas:
+    "header header header header";
   @media screen and (max-width: 768px) {
-    grid-template-columns: auto auto; 
+    grid-template-columns: auto auto;
+    grid-template-areas:
+    "header header";
   }
   img {
     max-width: 100%;
