@@ -31,22 +31,25 @@ class Gallery extends Component {
 
   render() {
     return (
-      <InfiniteScroll
-        loadMore={this.fetchData.bind(this)}
-        hasMore={this.state.hasmore}
-        useWindow={true}
-        loader={<div className="loader" key={0}>Cargando ...</div>}
-        className='gallery-container'
-      >
-        {this.state.posts.map(post => (
-          <a href={post.ACF.link_instagram} key={post.id}>
-            <img
-              alt={post.ACF.imagen_instagram.title}
-              src={post.ACF.imagen_instagram.url}
-            />
-          </a>))
-        }
-      </InfiniteScroll>
+      <React.Fragment>
+        <h2>Da click en la imagen para leer la nota</h2>
+        <InfiniteScroll
+          loadMore={this.fetchData.bind(this)}
+          hasMore={this.state.hasmore}
+          useWindow={true}
+          loader={<div className="loader" key={0}>Cargando ...</div>}
+          className='gallery-container'
+        >
+          {this.state.posts.map(post => (
+            <a href={post.ACF.link_instagram} key={post.id}>
+              <img
+                alt={post.ACF.imagen_instagram.title}
+                src={post.ACF.imagen_instagram.url}
+              />
+            </a>))
+          }
+        </InfiniteScroll>
+      </React.Fragment>
     )
   }
 }
