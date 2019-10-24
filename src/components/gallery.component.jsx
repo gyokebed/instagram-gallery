@@ -2,12 +2,15 @@ import React, { Component } from "react";
 import axios from "axios";
 import InfiniteScroll from 'react-infinite-scroller';
 
+import './gallery.styles.scss';
+
 const apiEndpoint = "http://sinembargo.test/wp-json/wp/v2/instagram-gallery";
 
 class Gallery extends Component {
   state = {
     posts: [],
-    page: 1,
+    pageNumber: 1,
+    items: 8, 
     hasmore: true
   };
 
@@ -16,13 +19,13 @@ class Gallery extends Component {
   }
 
   async fetchData() {
-    const { posts, page } = this.state;
-    const { data: newPosts, headers } = await axios.get(`${apiEndpoint}?page=${page}&per_page=8`);
+    const { posts, pageNumber, items } = this.state;
+    const { data: newPosts, headers } = await axios.get(`${apiEndpoint}?page=${pageNumber}&per_page=${items}`);
 
     this.setState({
       posts: [...posts, ...newPosts],
-      page: page + 1,
-      hasmore: page < headers["x-wp-totalpages"]
+      pageNumber: pageNumber + 1,
+      hasmore: pageNumber < headers["x-wp-totalpages"]
     });
   }
 
@@ -33,6 +36,7 @@ class Gallery extends Component {
         hasMore={this.state.hasmore}
         useWindow={true}
         loader={<div className="loader" key={0}>Cargando ...</div>}
+        className='gallery-container'
       >
         {this.state.posts.map(post => (
           <a href={post.ACF.link_instagram} key={post.id}>

@@ -1,0 +1,13 @@
+.gallery-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 1em;
+  justify-content: center;
+  padding: 1em;
+  @media screen and (max-width: 768px) {
+    grid-template-columns: auto auto; 
+  }
+  img {
+    max-width: 100%;
+  }
+}
