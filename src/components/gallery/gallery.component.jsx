@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 import InfiniteScroll from 'react-infinite-scroller';
-import logo from '../logo.png'
 
+import Item from '../item/item.component';
+
+import logo from '../../logo.png'
 import './gallery.styles.scss';
 
 const apiEndpoint = "http://sinembargo.test/wp-json/wp/v2/instagram-gallery";
@@ -31,6 +33,7 @@ class Gallery extends Component {
   }
 
   render() {
+    const { posts } = this.state;
     return (
         <InfiniteScroll
           loadMore={this.fetchData.bind(this)}
@@ -47,14 +50,9 @@ class Gallery extends Component {
             </div>
             <h3>Da click en la imagen para leer la nota</h3>
           </div>
-          {this.state.posts.map(post => (
-            <a href={post.ACF.link_instagram} key={post.id}>
-              <img
-                alt={post.ACF.imagen_instagram.title}
-                src={post.ACF.imagen_instagram.url}
-              />
-            </a>))
-          }
+
+          <Item posts={posts} />
+          
         </InfiniteScroll>
     )
   }
