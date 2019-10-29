@@ -9,7 +9,6 @@ import "./gallery.styles.scss";
 
 const apiEndpoint = "https://www.sinembargo.mx/wp-json/wp/v2/instagram-gallery";
 const timeStamp = new Date().getTime();
-console.log(timeStamp);
 
 class Gallery extends Component {
   state = {
