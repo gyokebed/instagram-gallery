@@ -52,7 +52,7 @@ class Gallery extends Component {
         <div className="header">
           <div className="logo">
             <a href="/">
-              <img src={logo} alt="Logo" width="300px" />
+              <img src={logo} alt="Logo" />
             </a>
           </div>
           <h3>Da click en la imagen para leer la nota</h3>
