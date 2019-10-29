@@ -8,6 +8,8 @@ import logo from "../../logo.png";
 import "./gallery.styles.scss";
 
 const apiEndpoint = "https://www.sinembargo.mx/wp-json/wp/v2/instagram-gallery";
+const timeStamp = new Date().getTime();
+console.log(timeStamp);
 
 class Gallery extends Component {
   state = {
@@ -24,7 +26,7 @@ class Gallery extends Component {
   async fetchData() {
     const { posts, pageNumber, items } = this.state;
     const { data: newPosts, headers } = await axios.get(
-      `${apiEndpoint}?page=${pageNumber}&per_page=${items}`
+      `${apiEndpoint}?page=${pageNumber}&per_page=${items}&${timeStamp}`
     );
 
     this.setState({
