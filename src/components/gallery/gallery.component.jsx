@@ -4,7 +4,7 @@ import InfiniteScroll from "react-infinite-scroller";
 
 import Item from "../item/item.component";
 
-import logo from "../../logo.png";
+import logo from "../../logo.svg";
 import "./gallery.styles.scss";
 
 const apiEndpoint = "https://www.sinembargo.mx/wp-json/wp/v2/instagram-gallery";
@@ -52,7 +52,7 @@ class Gallery extends Component {
         <div className="header">
           <div className="logo">
             <a href="/">
-              <img src={logo} alt="Logo" />
+              <img src={logo} alt="Logo" width="300px" />
             </a>
           </div>
           <h3>Da click en la imagen para leer la nota</h3>
