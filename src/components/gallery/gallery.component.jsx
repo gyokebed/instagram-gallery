@@ -44,7 +44,20 @@ class Gallery extends Component {
         useWindow={true}
         loader={
           <div className="loader" key={0}>
-            Cargando ...
+            <div class="lds-default">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
           </div>
         }
         className="gallery-container"
