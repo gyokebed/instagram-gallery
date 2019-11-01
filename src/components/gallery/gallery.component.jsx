@@ -60,7 +60,7 @@ class Gallery extends Component {
             </div>
           </div>
         }
-        className="gallery-container"
+        className="container"
       >
         <div className="header">
           <div className="logo">
@@ -71,7 +71,9 @@ class Gallery extends Component {
           <h3>Da click en la imagen para leer la nota</h3>
         </div>
 
-        <Item posts={posts} />
+        <div className="items-container">
+          <Item posts={posts} />
+        </div>
       </InfiniteScroll>
     );
   }
